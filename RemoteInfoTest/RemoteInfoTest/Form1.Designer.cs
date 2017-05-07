@@ -42,6 +42,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "查看远程信息";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -80,6 +81,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "小工具";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
