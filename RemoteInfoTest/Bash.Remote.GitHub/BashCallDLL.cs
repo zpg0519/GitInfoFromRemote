@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace Bash.Remote.GitHub
 {
@@ -17,22 +18,18 @@ namespace Bash.Remote.GitHub
                 string result = string.Empty;
                 StartProcess sp = new StartProcess();
                 sp._Process.Start();
-                sp._Process.StandardInput.WriteLine(str);
-                sp._Process.OutputDataReceived += AfterGet;
-                return "11";
-
-
+                //sp._Process.StandardInput.WriteLine(str);
+                return AfterGet(sp._Process.StandardOutput);
             }
             catch (Exception ex) {
                 return ex.Message;
             }
         }
 
-        public static void AfterGet(object sender, DataReceivedEventArgs e)
+        public static string AfterGet(StreamReader sr)
         {
-            string result = string.Empty;
-            if (e.Data!=null)
-            result = e.Data;
+            string result = sr.ReadToEnd();
+            return result;
         }
     }
 }

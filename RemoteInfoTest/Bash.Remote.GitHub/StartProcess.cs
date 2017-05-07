@@ -14,6 +14,8 @@ namespace Bash.Remote.GitHub
         {
             Process p = new Process();
             p.StartInfo.FileName = @"C:\Program Files\Git\git-bash.exe";
+            p.StartInfo.Arguments = "git branch -r";
+            p.StartInfo.WorkingDirectory = @"D:\charles\GitInfoFromRemote\RemoteInfoTest";
             p.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
             p.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
             p.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
